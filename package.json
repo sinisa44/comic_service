@@ -1,19 +1,27 @@
 {
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.20.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "expres": "^0.0.5",
-    "jsonwebtoken": "^8.5.1",
-    "moment": "^2.29.3",
-    "mongoose": "^4.13.21",
-    "mongoose-auto-increment": "^5.0.1",
-    "morgan": "^1.10.0",
-    "save-dev": "^0.0.1-security",
-    "validator": "^13.7.0"
+  "name": "ms-marvel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.18"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sinisa44/comic_service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sinisa44/comic_service/issues"
+  },
+  "homepage": "https://github.com/sinisa44/comic_service#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.1",
+    "morgan": "^1.10.0"
   }
 }
