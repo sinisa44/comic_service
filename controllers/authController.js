@@ -3,7 +3,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 exports.login = async (req, res) => {
-  //   console.log({ req, res });
   const user = await User.findOne({ email: req.body.email });
 
   if (user) {
@@ -21,7 +20,6 @@ exports.login = async (req, res) => {
 
         const token = jwt.sign(
           {
-            // exp: Math.floor(Date.now() / 1000) + 60 * 60,
             username,
             password,
             email,
@@ -29,7 +27,7 @@ exports.login = async (req, res) => {
           },
           process.env.TOKEN,
           {
-            expiresIn:Math.floor(Date.now() / 1000) + 60 * 60
+            expiresIn: Math.floor(Date.now() / 1000) + 60 * 60,
           }
         );
 
@@ -40,22 +38,18 @@ exports.login = async (req, res) => {
         });
       }
     );
+  } else {
+    res.status(404).json({ message: "not found" });
   }
 };
 
-exports.logout = async (req, res) => {
-  console.log({ req, res });
-};
-
 exports.register = async (req, res) => {
-  // console.log({ req, res });
-  //   res.status(200).json({ req, res });
   try {
     const newUser = await User.create(req.body);
 
     res.status(200).json({ data: { newUser } });
   } catch (error) {
-    res.status(400).json({ error: error.toString() });
+    res.status(500).json({ error: error.toString() });
   }
 };
 
